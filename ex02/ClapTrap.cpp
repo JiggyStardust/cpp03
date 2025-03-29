@@ -6,18 +6,22 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:08:38 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 15:03:45 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/03/29 17:27:57 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : m_name(name)
+ClapTrap::ClapTrap(std::string name, int hitpoints, int energypoints, int attackdamage) :
+				m_name(name),
+				m_hitPoints(hitpoints), 
+				m_energyPoints(energypoints),
+				m_attackDamage(attackdamage)
 {
-	m_hitPoints = 10;
-	m_energyPoints = 10;
-	m_attackDamage = 0;
-	std::cout << m_name << " constructed" << std::endl;
+	std::cout << "ClapTrap " << m_name << " constructed" << std::endl;
+	std::cout << "Hit points: " << m_hitPoints << std::endl;
+	std::cout << "Energy points: " << m_energyPoints << std::endl;
+	std::cout << "Attack damage: " << m_attackDamage << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap& orig)
@@ -25,6 +29,7 @@ ClapTrap::ClapTrap( const ClapTrap& orig)
 	std::cout << "copy constructor called" << std::endl;
 	*this = orig;
 }
+
 ClapTrap& ClapTrap::operator = ( const ClapTrap& orig)
 {
 	if (this != &orig)
@@ -64,6 +69,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (m_hitPoints <= 0)
+	{
+		std::cout << "ClapTrap " << m_name << " is dead :(" << std::endl;
+		return ;
+	}
 	if (m_energyPoints <= 0)
 	{
 		std::cout << "ClapTrap " << m_name << " can't repair itself without energy points..."

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 15:55:48 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 13:57:55 by sniemela         ###   ########.fr       */
+/*   Created: 2025/03/29 13:08:16 by sniemela          #+#    #+#             */
+/*   Updated: 2025/03/29 17:39:34 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "ClapTrap.hpp"
 
-int	main(void)
+class ScavTrap: public ClapTrap
 {
-	ClapTrap bob("Bob");
-	ClapTrap david("David");
-	bob.attack("David");
-	david.takeDamage(10);
-	david.beRepaired(1);
-	return (0);
-}
+	public:
+		ScavTrap(std::string name = "default name");
+		~ScavTrap( void );
+		ScavTrap( const ScavTrap& orig);
+		ScavTrap& operator = ( const ScavTrap& orig);
+		
+		
+		void guardGate( void );
+		void attack(const std::string& target);
+};
