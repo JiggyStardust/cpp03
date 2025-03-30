@@ -3,19 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: saaraniemela <saaraniemela@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/28 15:58:59 by sniemela          #+#    #+#              #
-#    Updated: 2025/03/29 13:07:32 by sniemela         ###   ########.fr        #
+#    Updated: 2025/03/30 13:01:21 by saaraniemel      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 CPPFLAGS = -Wall -Werror -Wextra -std=c++11
 CPP = c++
 SOURCES = main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			ScavTrap.cpp \
+			FragTrap.cpp
 
 OBJDIR = obj
 OBJS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)

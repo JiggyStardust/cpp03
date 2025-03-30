@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: saaraniemela <saaraniemela@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:08:38 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 17:27:57 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/03/30 13:05:08 by saaraniemel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap& ClapTrap::operator = ( const ClapTrap& orig)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << m_name << " destroyed" << std::endl;
+	std::cout << "ClapTrap " << m_name << " destroyed" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
