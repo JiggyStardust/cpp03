@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:55:48 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 17:37:23 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:43:14 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 
 int	main(void)
 {
-	// ClapTrap bob("Bob");
+	ClapTrap bob("Bob");
 	ScavTrap child("Child bob");
+	bob.attack("Child bob");
+	child.takeDamage(0);
+	child.beRepaired(0);
 	child.attack("Father bob");
-	child.takeDamage(20);
-	child.beRepaired(20);
+	bob.takeDamage(20);
+	bob.beRepaired(20);
 	child.guardGate();
 	return (0);
 }

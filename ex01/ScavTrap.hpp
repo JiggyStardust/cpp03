@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:08:16 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 17:39:34 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/03/29 17:47:29 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class ScavTrap: public ClapTrap
 		~ScavTrap( void );
 		ScavTrap( const ScavTrap& orig);
 		ScavTrap& operator = ( const ScavTrap& orig);
-		
 		
 		void guardGate( void );
 		void attack(const std::string& target);
