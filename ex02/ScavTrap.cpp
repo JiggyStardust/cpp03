@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:07:45 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 17:41:12 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:53:24 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ ScavTrap& ScavTrap::operator = ( const ScavTrap& orig)
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (m_energyPoints <= 0 || m_hitPoints <= 0)
+	if (m_hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << m_name << " can't attack without energy points and hit points"
+		std::cout << "ScavTrap " << m_name << " can't attack. They're dead (no hits points)."
+		<< std::endl;
+		return ;
+	}
+	if (m_energyPoints <= 0)
+	{
+		std::cout << "ScavTrap " << m_name << " can't attack without energy points"
 		<< std::endl;
 		return ;
 	}
@@ -59,5 +65,11 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate( void )
 {
+	if (m_hitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << m_name << " is dead (no hits points)."
+		<< std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << m_name << " is now in Gate keeper mode." << std::endl;
 }

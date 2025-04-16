@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:08:38 by sniemela          #+#    #+#             */
-/*   Updated: 2025/03/29 17:27:57 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:52:41 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,20 @@ ClapTrap& ClapTrap::operator = ( const ClapTrap& orig)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << m_name << " destroyed" << std::endl;
+	std::cout << "ClapTrap " << m_name << " destroyed" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (m_energyPoints <= 0 || m_hitPoints <= 0)
+	if (m_hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << m_name << " can't attack without energy points and hit points"
+		std::cout << "ClapTrap " << m_name << " can't attack because they're dead (no hit points)."
+		<< std::endl;
+		return ;
+	}
+	if (m_energyPoints <= 0)
+	{
+		std::cout << "ClapTrap " << m_name << " can't attack without energy points."
 		<< std::endl;
 		return ;
 	}
@@ -62,6 +68,12 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	if (m_hitPoints <= 0)
+	{
+		std::cout << "ClapTrap " << m_name << " can't take damage, because they're dead already (no hit points)."
+		<< std::endl;
+		return ;
+	}
 	std::cout << "ClapTrap " << m_name << " takes " << amount << " points of damage!"
 				<< std::endl;
 	m_hitPoints -= amount;
@@ -71,7 +83,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (m_hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << m_name << " is dead :(" << std::endl;
+		std::cout << "ClapTrap " << m_name << " can't be repaired, " << m_name << " is dead :(" << std::endl;
 		return ;
 	}
 	if (m_energyPoints <= 0)
