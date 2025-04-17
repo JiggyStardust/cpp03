@@ -6,7 +6,7 @@
 /*   By: sniemela <sniemela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 13:07:45 by sniemela          #+#    #+#             */
-/*   Updated: 2025/04/16 16:53:24 by sniemela         ###   ########.fr       */
+/*   Updated: 2025/04/17 09:53:49 by sniemela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ ScavTrap& ScavTrap::operator = ( const ScavTrap& orig)
 {
 	if (this != &orig)
 	{
+		std::cout << "copy assignment operator called." << std::endl;
 		m_attackDamage = orig.m_attackDamage;
 		m_energyPoints = orig.m_energyPoints;
 		m_hitPoints = orig.m_hitPoints;;
